@@ -1,0 +1,48 @@
+/* title control */
+.gameTitle {
+    text-align: center;
+    font-size: 5rem;
+    font-family: sans-serif;
+}
+
+/* main section control */
+.mainSection {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+/* Control Panel section */
+.controlPanel {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+}
+
+.controlPanel>button {
+    width: 70%;
+    margin-top: 3rem;
+    height: 3rem;
+}
+
+/* sketch box control */
+.sketchCon {
+    width: 40rem;
+    height: 40rem;
+    border: 1px black solid;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
+
+.createdDiv {
+    background-color: red;
+    margin: 0;
+}
+
+.createdDiv:hover {
+    background-color: blue;
+}
