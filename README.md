@@ -1,0 +1,2 @@
+# etchSketch
+JavaScript learning project
