@@ -1,8 +1,8 @@
 /* title control */
 .gameTitle {
     text-align: center;
-    font-size: 5rem;
-    font-family: sans-serif;
+    font-size: 7rem;
+    font-family: 'VT323', monospace;
 }
 
 /* main section control */
@@ -14,18 +14,28 @@
 }
 
 /* Control Panel section */
-.controlPanel {
+.leftControls {
     display: flex;
     flex-direction: column;
     width: 25%;
     align-items: center;
+    background-color: white;
 }
 
-.controlPanel>button {
+.leftControls>button,
+.colorPicker,
+#gridSizeSlider {
     width: 70%;
-    margin-top: 3rem;
+    margin-top: 2rem;
     height: 3rem;
 }
+
+/* Bottom controls */
+.bottomControls {
+    display: flex;
+    justify-content: center;
+}
+
 
 /* sketch box control */
 .sketchCon {
@@ -36,13 +46,27 @@
     margin-left: auto;
     margin-right: auto;
     flex-wrap: wrap;
+    background-color: white;
 }
 
+
+
 .createdDiv {
-    background-color: red;
     margin: 0;
 }
 
-.createdDiv:hover {
-    background-color: blue;
+.black {
+    background: black;
+    transition: all 0.5s ease
+}
+
+.white {
+    background: white;
+    transition: all 0.5s ease
+}
+
+body {
+    background: linear-gradient(to top, #c6ffdd, #fbd786, #f7797d);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }

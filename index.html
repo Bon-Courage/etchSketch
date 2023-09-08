@@ -6,31 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <h1 class="gameTitle">Etch-a-sketch</h1>
 
     <main class="mainSection">
-        <div class="controlPanel">
-            <label for="favcolor">Select your favorite color:</label>
-            <input type="color" id="favcolor" name="favcolor" value="#ff0000">
-            <button class="modeButton colorMode">Color Mode</button>
+        <div class="leftControls controls">
+            <button class="modeButton blackMode">Black</button>
             <button class="modeButton rainbowMode">Rainbow Mode</button>
+            <button class="modeButton warmMode">Warm</button>
+            <button class="modeButton coldMode">Cold</button>
+            <input type="color" class="colorPicker" id="favcolor" name="favcolor" value="#ff0000">
             <button class="modeButton eraseMode">Erase</button>
             <button class="clear">clear</button>
-
-
-            <input type="range" id="gridSizeSlider" name="gridSizeSlider" min="1" max="48" value="24" step="1" />
-
-            <label for="gridSizeSlider">Grid Size:<em class="gridSizeDisplay">32</em>x<em
-                    class="gridSizeDisplay">32</em></label>
-
-
-
+            <input type="range" id="gridSizeSlider" name="gridSizeSlider" min="1" max="24" value="12" step="1" />
         </div>
-        <div class="sketchCon sketchBox"></div>
+
+        <div class="sketchCon sketchBox">
+            <div class=sketchConBox></div>
+        </div>
+
     </main>
+
 
     <script src="script.js"></script>
 </body>
