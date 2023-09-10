@@ -14,7 +14,8 @@
 }
 
 /* Control Panel section */
-.leftControls {
+.leftControls,
+.rightControls {
     display: flex;
     flex-direction: column;
     width: 25%;
@@ -23,6 +24,7 @@
 }
 
 .leftControls>button,
+.rightControls>button,
 .colorPicker,
 #gridSizeSlider {
     width: 70%;
