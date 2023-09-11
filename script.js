@@ -29,6 +29,7 @@ function addDivs() {
 
 //This Function sets divs to color black without any button press. 
 
+
 function colourBlack() {
     const createdDivs = document.getElementsByClassName('createdDiv');
     const createdDivsArray = Array.from(createdDivs);
@@ -56,37 +57,36 @@ function updateDisplay() {
 }
 
 
-// This overly long function listens for a click in the control panel.If black, erase, or clear are selcted the code has to first on hover remove the inline style before the set attribute function.   A switch statement would be good here.But I've tried unsuccessfully. 
+//This function listens tot the contol buttons. 
 
 mainSection.addEventListener('click', (event) => {
     const createdDivs = document.getElementsByClassName('createdDiv');
     const createdDivsArray = Array.from(createdDivs);
     const buttonSelected = getButtonChoice(event.target);
 
-    if (buttonSelected === `black`) {
+    if (buttonSelected === 'black' || buttonSelected === 'erase' || buttonSelected === 'rainbow' || buttonSelected === 'warm' || buttonSelected === 'cold') {
         createdDivsArray.forEach((div) => {
             div.addEventListener('mouseover', (e) => {
-                blackColor(div)
+                if (buttonSelected === `black`) {
+                    blackColor(div);
+                } else if (buttonSelected === `erase`) {
+                    eraseDiv(div)
+                } else if (buttonSelected === `rainbow`) {
+                    rainbowColor(div);
+                } else if (buttonSelected === 'cold') {
+                    coldColors(div);
+                } else if (buttonSelected === 'warm') {
+                    warmColors(div);
+                }
             });
-        });
-    }
-    else if (buttonSelected === `erase`) {
-        createdDivsArray.forEach((div) => {
-            div.addEventListener('mouseover', (e) => {
-                div.style.background = ``;
-                div.style.background = `white`;
-            });
-        });
-    }
-    else if (buttonSelected === `clear`) {
+        })
+    } else if (buttonSelected === 'clear') {
         createdDivsArray.forEach((div) => {
             div.style.background = ``;
             div.addEventListener('mouseover', (e) => {
                 blackColor(div)
             });
-
-
-        });
+        })
     } else if (buttonSelected === 'color') {
         colorPicker.addEventListener('change', (event) => {
             const selectedColor = event.target.value;
@@ -94,50 +94,12 @@ mainSection.addEventListener('click', (event) => {
                 div.addEventListener('mouseover', (e) => {
                     div.style.background = selectedColor
                     e.target.setAttribute("class", "createdDiv");
-                    div.style.opacity = `1`;
                 });
             });
         })
-    } else if (buttonSelected === 'warm') {
-        createdDivsArray.forEach((div) => {
-            div.addEventListener('mouseover', (e) => {
-
-            });
-        });
-    } else if (buttonSelected === 'cold') {
-        createdDivsArray.forEach((div) => {
-            div.addEventListener('mouseover', (e) => {
-                coldColors(div)
-            });
-        });
-    } else if (buttonSelected === `rainbow`) {
-        createdDivsArray.forEach((div) => {
-            div.addEventListener('mouseover', (e) => {
-                rainbowColor(div);
-            });
-        });
-    }
-    ///new code 
-
-    else if (buttonSelected === 'darken') {
-        createdDivsArray.forEach((div) => {
-            div.addEventListener('click', () => {
-                darkenDiv(div);
-            });
-        });
-    }
-
-    //new code 2
-    else if (buttonSelected === 'lighten') {
-        createdDivsArray.forEach((div) => {
-            div.addEventListener('click', () => {
-                lightenDiv(div);
-            });
-        });
     }
 })
-
-
+    ;
 
 
 
@@ -167,13 +129,6 @@ function getButtonChoice(target) {
         case target.classList.contains('coldMode'):
             console.log('User chose cold mode');
             return 'cold';
-        case target.classList.contains('darkenMode'):
-            console.log('User clicked darken');
-            return 'darken';
-        case target.classList.contains('lightenMode'):
-            console.log('User clicken lighten');
-            return 'lighten';
-
         default:
             return null;
     }
@@ -223,17 +178,9 @@ function coldColors(div) {
     div.style.opacity = `1`
 }
 
-//This function increase the darkness of a div when it is clicked.
-
-function darkenDiv(div) {
-    div.style.opacity += `.1`
-}
 
 // This function decrease the darkness of a div when it is clicked.
 
-function lightenDiv(div) {
-    div.style.opacity -= `.1`
-}
 
 //THis function sets the inline style when erase is selected it is called in the for main section even listener. 
 
@@ -242,16 +189,4 @@ function eraseDiv(div) {
     div.style.background = `white`;
 }
 
-
-// THis function sets the inline style when new color is selected is selected it is called in the for main section even listener. 
-
-function selectColor(div) {
-    colorPicker.addEventListener('change', (event) => {
-        const selectedColor = event.target.value;
-        div.addEventListener('mouseover', (e) => {
-            div.style.background = selectedColor
-            e.target.setAttribute("class", "createdDiv");
-            div.style.opacity = `1`;
-        })
-    })
-}
+    // THis function sets the inline style when new color is selected is selected it is called in the for main section even listener. 
